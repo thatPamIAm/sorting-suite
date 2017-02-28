@@ -1,19 +1,18 @@
-const bubbleSort = ()=> {
-
+function bubbleSort(array){
+// do loop with that condition that for loop will continue to
+// run inside for loop until nothing in the array is swapped
+  do {
+    var swapped = false;
+    for(var i = 0; i < array.length; i++) {
+      var current = array[i];
+      if(current > array[i+1]) {
+       array[i] = array[i+1];
+       array[i+1] = current;
+       swapped = true;
+    }
+  }
+} while(swapped === true);
+  return(array);
 }
 
-
-// const bubblefilterMe = (array, string) => {
-//
-//   validateString(string);
-//
-//   let filtered = array.filter((value) => {
-//     return value !== string
-//   });
-//
-//   return filtered;
-// }
-//
-// export default filterMe
-
-export default bubbleSort
+module.exports = bubbleSort;

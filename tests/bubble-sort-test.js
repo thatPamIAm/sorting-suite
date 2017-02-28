@@ -1,27 +1,24 @@
 import { expect } from 'chai';
-import filterMe from '../scripts/bubble-sort'
+import bubbleSort from '../scripts/bubble-sort';
 
-// import { expect } from 'chai';
-// import filterMe from '../scripts/filter'
-//
-// describe('TDD with filter', () => {
-//   it('should return to me an array', ()=> {
-//     expect(Array.isArray(filterMe([],'hello'))).to.be.true
-//   });
-//
-//   it('should return an array that is sorted correctly?', () => {
-//     let filterMeToo = filterMe(['suh','dude','dude','suh','tacos','skateboards'], 'suh')
-//
-//     expect(filterMeToo).to.deep.equal(['dude','dude','tacos','skateboards']);
-//     expect(filterMeToo.length).to.equal(4)
-//   });
-//
-//   it('should throw an error on non-string input for filter', () => {
-//      expect( () => filterMe(['a','c', 'b', 'f', 'd'], 5)).to.throw('error');
-//    });
-//
-//   it('should throw an error if there is an empty string given', ()=>{
-//     expect( () =>
-//     filterMe(['a','c', 'b', 'f', 'd'], '')).to.throw('error');
-//   })
-// })
+  describe('bubbleSort function', () => {
+    it('should return an array', () => {
+    expect(Array.isArray(bubbleSort([]))).to.be.true;
+  });
+
+  it('should return a numerical array that is sorted correctly', () => {
+    var bubbleSortMe = bubbleSort([2, 4, 3, 1]);
+    expect(bubbleSortMe).to.deep.equal([1, 2, 3, 4]);
+  });
+
+  it('should return an alphabetical array that is sorted correctly', () => {
+      var bubbleSortMe = bubbleSort(['d', 'a', 'c', 'b']);
+    expect(bubbleSortMe).to.deep.equal(["a", "b", "c", "d"]);
+  });
+
+  it('should not unsort a sorted array', function(){
+    var bubbleSortMe = bubbleSort(['a', 'b', 'c', 'd'])
+    expect(bubbleSortMe).to.deep.equal(["a", "b", "c", "d"])
+  });
+
+});
